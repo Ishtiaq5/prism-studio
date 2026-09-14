@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prism Studio - Gradient &amp; Glow Lab</title>
+<meta name="description" content="Prism Studio is a premium dark-mode gradient and glow generator. Mix colors, tune the angle, dial in the glow, then copy production-ready CSS." />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div class="orbs" aria-hidden="true">
+  <span class="orb orb-a"></span>
+  <span class="orb orb-b"></span>
+  <span class="orb orb-c"></span>
+</div>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Prism Studio home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Prism<em>Studio</em></span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#studio">Studio</a>
+    <a href="#presets">Presets</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Gradient &amp; glow lab</p>
+    <h1 id="hero-title">Design <span class="grad">radiant</span> gradients<br />in seconds.</h1>
+    <p class="lede">Mix colors, tune the angle, dial in the glow - then copy production-ready CSS. No frameworks, no sign-up, everything runs in your browser.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#studio">Open the studio</a>
+      <button class="btn btn-ghost" type="button" id="surprise">Surprise me</button>
+    </div>
+    <ul class="hero-stats" aria-label="Highlights">
+      <li><strong>10</strong><span>curated presets</span></li>
+      <li><strong>0</strong><span>dependencies</span></li>
+      <li><strong>1</strong><span>click to copy CSS</span></li>
+    </ul>
+  </section>
+
+  <section class="section" id="studio" aria-labelledby="studio-title">
+    <div class="section-head">
+      <h2 id="studio-title">The Studio</h2>
+      <p>Controls on the left, live preview on the right.</p>
+    </div>
+
+    <div class="studio-grid">
+      <form class="panel glass" id="controls" aria-label="Gradient controls">
+        <div class="field">
+          <label for="c1">Color one</label>
+          <div class="color-row">
+            <input type="color" id="c1" value="#7c3aed" aria-label="Color one" />
+            <output id="c1out" for="c1">#7C3AED</output>
+          </div>
+        </div>
+        <div class="field">
+          <label for="c2">Color two</label>
+          <div class="color-row">
+            <input type="color" id="c2" value="#2dd4bf" aria-label="Color two" />
+            <output id="c2out" for="c2">#2DD4BF</output>
+          </div>
+        </div>
+        <div class="field">
+          <label for="c3">Color three</label>
+          <div class="color-row">
+            <input type="color" id="c3" value="#f472b6" aria-label="Color three" />
+            <output id="c3out" for="c3">#F472B6</output>
+          </div>
+        </div>
+        <div class="field">
+          <label for="shape">Shape</label>
+          <select id="shape" aria-label="Gradient shape">
+            <option value="linear" selected>Linear</option>
+            <option value="radial">Radial</option>
+            <option value="conic">Conic</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="angle">Angle <output id="angleOut" for="angle">135&deg;</output></label>
+          <input type="range" id="angle" min="0" max="360" step="1" value="135" aria-label="Gradient angle" />
+        </div>
+        <div class="field">
+          <label for="glow">Glow <output id="glowOut" for="glow">52</output></label>
+          <input type="range" id="glow" min="0" max="120" step="1" value="52" aria-label="Glow strength" />
+        </div>
+        <div class="field">
+          <label for="radius">Corner radius <output id="radiusOut" for="radius">28</output></label>
+          <input type="range" id="radius" min="0" max="64" step="1" value="28" aria-label="Corner radius" />
+        </div>
+        <div class="field check">
+          <input type="checkbox" id="animate" checked />
+          <label for="animate">Animate the gradient</label>
+        </div>
+        <div class="panel-actions">
+          <button type="button" class="btn btn-primary" id="copy">Copy CSS</button>
+          <button type="button" class="btn btn-ghost" id="random">Randomize</button>
+          <button type="button" class="btn btn-quiet" id="reset">Reset</button>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="preview-wrap">
+        <div class="preview-frame glass">
+          <div class="preview" id="preview" role="img" aria-label="Live gradient preview"></div>
+        </div>
+        <pre class="code glass" aria-label="Generated CSS" tabindex="0"><code id="cssOut"></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="presets" aria-labelledby="presets-title">
+    <div class="section-head">
+      <h2 id="presets-title">Presets</h2>
+      <p>Tap any swatch to load it into the studio.</p>
+    </div>
+    <div class="preset-grid" id="presetGrid" role="list" aria-label="Gradient presets"></div>
+  </section>
+
+  <section class="section about" id="about" aria-labelledby="about-title">
+    <div class="section-head">
+      <h2 id="about-title">About Prism Studio</h2>
+    </div>
+    <div class="about-grid">
+      <article class="glass card">
+        <h3>Built for speed</h3>
+        <p>Every control updates the preview instantly. Grab the CSS, paste it into your project, move on.</p>
+      </article>
+      <article class="glass card">
+        <h3>Zero dependencies</h3>
+        <p>Plain HTML, CSS and JavaScript. No build step, no tracking, no network calls - open it offline and it still works.</p>
+      </article>
+      <article class="glass card">
+        <h3>Made for portfolios</h3>
+        <p>Glow shadows and animated gradients are exactly what makes hero sections feel premium. Now they are one copy away.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Prism Studio - crafted with vanilla HTML, CSS &amp; JavaScript.</p>
+  <p class="fine">No cookies. No analytics. Just gradients.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
